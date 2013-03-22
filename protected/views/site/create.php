@@ -56,9 +56,40 @@ var svg = d3.select("#flash-success").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.xhr('index.php/site/Csv').post(jsonfile);
 
-d3.json('index.php/site/Csv', function(error, flare) {
+$.ajax({
+            type: 'POST',
+            url: 'index.php/site/Csv',
+            //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
+            data: jsonfile,
+            dataType: "text",
+            async: false,
+            success: function (flare) {
+console.log(flare);
+    for(val in flare){
+console.log(flare[val].Id);
+}
+  root = flare;
+  root.x0 = height / 2;
+  root.y0 = 0;
+ 
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
+  root.children.forEach(collapse);
+  update(root);
+            },
+            error: function (msg) {
+                //Error code goes here
+                console.log(msg);
+            }
+        });
+/*d3.json('index.php/site/Csv', function(error, flare) {
     console.log(flare);
     for(val in flare){
 console.log(flare[val].Id);
@@ -78,7 +109,7 @@ console.log(flare[val].Id);
   root.children.forEach(collapse);
   update(root);
 });
-
+*/
 d3.select(self.frameElement).style("height", "800px");
 
 function update(source) {
