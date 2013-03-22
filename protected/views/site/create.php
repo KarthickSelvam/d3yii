@@ -56,7 +56,7 @@ var svg = d3.select("#flash-success").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json('Site/Csv', function(error, flare) {
+d3.json('site/Csv', function(error, flare) {
     console.log(flare);
     for(val in flare){
 console.log(flare[val].Id);
