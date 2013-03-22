@@ -62,7 +62,7 @@ $.ajax({
             url: 'index.php/site/Csv',
             //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
             data: jsonfile,
-            dataType: "text",
+            dataType: "json",
             async: false,
             success: function (flare) {
 console.log(flare);
