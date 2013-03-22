@@ -50,8 +50,11 @@ class SiteController extends Controller
 	}
         public function actionCsv()
 	{
-            echo '<pre>';
-            print_r($_REQUEST);
+            if(isset($_POST['ajax']))
+		{
+			 print_r(json_encode($_REQUEST));
+			Yii::app()->end();
+		}
 	}
 
 	/**
