@@ -56,7 +56,7 @@ var svg = d3.select("#flash-success").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv(jsonfile.fullpath, function(error, flare) {
+d3.json('Site/D3', function(error, flare) {
     console.log(flare);
     for(val in flare){
 console.log(flare[val].Id);
@@ -85,7 +85,7 @@ function update(source) {
   var nodes = tree.nodes(root).reverse(),
       links = tree.links(nodes);
 
-  // Normalize for fixed-depth.
+  // Normalize for fixed-despth.
   nodes.forEach(function(d) { d.y = d.depth * 180; });
 
   // Update the nodes…
@@ -195,9 +195,10 @@ If you have business inquiries or other questions, please fill out the following
 
 <div class="form">
 <?php
+
 $this->widget('ext.coco.CocoWidget'
         ,array(
-            'id'=>'cocowidget1',
+            'id'=>'cocowidget1',  
             'onCompleted'=>'function(id,filename,jsoninfo){ getfile(jsoninfo); }',
             'onCancelled'=>'function(id,filename){ alert("cancelled"); }',
             'onMessage'=>'function(m){ alert(m); }',

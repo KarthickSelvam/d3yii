@@ -48,6 +48,11 @@ class SiteController extends Controller
 				$this->render('error', $error);
 		}
 	}
+        public function actionCsv()
+	{
+            echo '<pre>';
+            print_r($_REQUEST);
+	}
 
 	/**
 	 * Displays the contact page
