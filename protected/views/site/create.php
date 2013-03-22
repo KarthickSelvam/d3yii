@@ -89,7 +89,7 @@ console.log(flare[val].Id);
                 console.log(msg);
             }
         });
-/*d3.json('index.php/site/Csv', function(error, flare) {
+d3.json('index.php/site/Csv', function(error, flare) {
     console.log(flare);
     for(val in flare){
 console.log(flare[val].Id);
@@ -109,7 +109,7 @@ console.log(flare[val].Id);
   root.children.forEach(collapse);
   update(root);
 });
-*/
+
 d3.select(self.frameElement).style("height", "800px");
 
 function update(source) {
