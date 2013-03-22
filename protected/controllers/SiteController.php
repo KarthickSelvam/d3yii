@@ -52,7 +52,6 @@ class SiteController extends Controller
 	{
             echo '<pre>';
             print_r($_REQUEST);
-            exit;
 	}
 
 	/**
