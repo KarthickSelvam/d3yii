@@ -58,7 +58,7 @@ var svg = d3.select("#flash-success").append("svg")
 
 
 $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: 'index.php/site/Csv',
             //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
             data: jsonfile,
