@@ -56,7 +56,7 @@ var svg = d3.select("#flash-success").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.xhr('index.php/site/Csv').post(jsonfile,function(error, flare) { console.log('came')});
+d3.xhr('index.php/site/Csv').post(jsonfile);
 
 d3.json('index.php/site/Csv', function(error, flare) {
     console.log(flare);
