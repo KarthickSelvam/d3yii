@@ -61,7 +61,8 @@ class SiteController extends Controller
             $csv[]=fgetcsv($file);
             }
             //$csv=fgetcsv($file,1000);
-           // print_r($csv);
+         //   print_r($csv);
+            //exit;
             foreach ($csv as $id=>$val){
                   foreach($val as $key2=>$val2){
                           $result[$id][$csv[0][$key2]]=$val2;
@@ -75,7 +76,7 @@ class SiteController extends Controller
             $nodes = array();
             $tree = array();
             foreach ($result as &$node) {
-  $node["children"] = array();
+  //$node["children"] = array();
   $id = $node["Id"];
   $parent_id = $node["Report to"];
   $nodes[$id] =& $node;
@@ -168,5 +169,22 @@ print_r(json_encode(array("Name"=>"Top","children"=>$tree)));
             $model=new MyModel;
 		$this->render('create',array('model'=>$model));
 	}
+        }
+          public function actionWorldmap()
+	{
+           // $model=new MyModel;
+		$this->render('worldmap');
+        }
+        
+        public function actionForce()
+	{
+            $model=new MyModel;
+		$this->render('force',array('model'=>$model));
+        }
+        
+        public function actionStep()
+	{
+            $model=new MyModel;
+		$this->render('step',array('model'=>$model));
         }
 }
