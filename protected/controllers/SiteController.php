@@ -50,11 +50,45 @@ class SiteController extends Controller
 	}
         public function actionCsv()
 	{
-            if(isset($_POST['ajax']))
-		{
-			 print_r(json_encode($_REQUEST));
+          
+
+            //if(isset($_POST['ajax']))
+		//{
+                  //echo '<pre>';
+           // print_r($_REQUEST);
+            $file=fopen($_REQUEST['fullpath'], 'rb');
+            while(!feof($file)) {
+            $csv[]=fgetcsv($file);
+            }
+            //$csv=fgetcsv($file,1000);
+           // print_r($csv);
+            foreach ($csv as $id=>$val){
+                  foreach($val as $key2=>$val2){
+                          $result[$id][$csv[0][$key2]]=$val2;
+                  }
+            }
+            
+            // Remove title row
+            $title_row=0;
+            unset($result[$title_row]);
+            
+            $nodes = array();
+            $tree = array();
+            foreach ($result as &$node) {
+  $node["children"] = array();
+  $id = $node["Id"];
+  $parent_id = $node["Report to"];
+  $nodes[$id] =& $node;
+  if (array_key_exists($parent_id, $nodes)) {
+    $nodes[$parent_id]["children"][] =& $node;
+  } else {
+    $tree[] =& $node;
+  }
+}
+print_r(json_encode(array("Name"=>"Top","children"=>$tree)));
+			// print_r(json_encode($_REQUEST));
 			Yii::app()->end();
-		}
+		//}
 	}
 
 	/**

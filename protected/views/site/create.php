@@ -32,6 +32,9 @@ $this->breadcrumbs=array(
 
 </style>
 <body>
+    <div id="chart">
+        
+        </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 function getfile(jsonfile){
@@ -50,7 +53,7 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
-var svg = d3.select("#flash-success").append("svg")
+var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -59,7 +62,7 @@ var svg = d3.select("#flash-success").append("svg")
 
 $.ajax({
             type: 'GET',
-            url: 'index.php/site/Csv',
+            url: 'index.php?r=site/Csv',
             //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
             data: jsonfile,
             dataType: "json",
@@ -82,6 +85,7 @@ console.log(flare[val].Id);
   }
 
   root.children.forEach(collapse);
+// root.forEach(collapse);
   update(root);
             },
             error: function (msg) {
@@ -139,7 +143,7 @@ function update(source) {
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
       .attr("dy", ".35em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .text(function(d) { return d.name; })
+      .text(function(d) { return d.Name; })
       .style("fill-opacity", 1e-6);
 
   // Transition nodes to their new position.
@@ -201,6 +205,7 @@ function update(source) {
 
 // Toggle children on click.
 function click(d) {
+    console.log(d);
   if (d.children) {
     d._children = d.children;
     d.children = null;
