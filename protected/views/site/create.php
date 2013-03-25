@@ -217,7 +217,7 @@ function click(d) {
 }
 }
 </script>
-<h1>Create Chart</h1>
+<h1>Upload Data</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -228,7 +228,7 @@ function click(d) {
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+Only CSV
 </p>
 
 <div class="form">
