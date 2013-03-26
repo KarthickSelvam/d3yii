@@ -40,6 +40,7 @@ fill: #666;
 </select>
     </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
 var gauge = function(container, configuration) {
 var that = {};
@@ -215,9 +216,48 @@ function toggle(){
 }
 else
     powerGauge.update(8);
-} 
+}
 //}
-
+/*function toggle(){
+       // console.log(this)
+    if (document.getElementById("company").value == "ibm") {
+   // updateReadings(4);
+   $.ajax({
+            type: 'GET',
+            url: 'http://10.1.1.221/insightsAPI/coach.svc/GetAverageRating/16938/-3/-3',
+            //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
+           // data: jsonfile,
+            dataType: "text",
+            async: false,
+            success: function (flare) {
+powerGauge.update(flare);
+            },
+            error: function (msg) {
+                //Error code goes here
+                console.log(msg);
+            }
+        });
+    
+}
+else{
+    $.ajax({
+            type: 'POST',
+            url: 'http://10.1.1.221/insightsAPI/coach.svc/GetAverageRating/16938/-3/-3',
+            //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
+           // data: jsonfile,
+            dataType: "text",
+            async: false,
+            success: function (flare) {
+powerGauge.update(flare);
+            },
+            error: function (msg) {
+                //Error code goes here
+                console.log(msg);
+            }
+        });
+}
+  
+}*/
 //d3.selectAll("select").on("change", toggle);
 
 if ( !window.isLoaded ) {
@@ -229,7 +269,7 @@ window.addEventListener("load", function() {
 }
 </script>
 
-<h1>Gauge</h1>
+<h1>Ratings</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
