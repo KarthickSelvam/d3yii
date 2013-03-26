@@ -187,4 +187,9 @@ print_r(json_encode(array("Name"=>"Top","children"=>$tree)));
             $model=new MyModel;
 		$this->render('step',array('model'=>$model));
         }
+        public function actionGauge()
+	{
+          //  $model=new MyModel;
+		$this->render('gauge');
+        }
 }

@@ -33,7 +33,8 @@
 				array('label'=>'Tree', 'url'=>array('/site/Create')),
 				array('label'=>'Force Bubble', 'url'=>array('/site/Force')),
 				array('label'=>'Step', 'url'=>array('/site/Step')),
-				array('label'=>'Users - World Map ', 'url'=>array('/site/worldmap'))
+				array('label'=>'Users - World Map ', 'url'=>array('/site/worldmap')),
+                            array('label'=>'Gauge', 'url'=>array('/site/Gauge'))
 			),
 		)); ?>
 	</div><!-- mainmenu -->
