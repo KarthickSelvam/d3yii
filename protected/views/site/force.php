@@ -196,7 +196,7 @@ function flatten(root) {
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+Only CSV
 </p>
 
 <div class="form">
