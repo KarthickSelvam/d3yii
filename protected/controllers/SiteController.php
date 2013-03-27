@@ -48,6 +48,7 @@ class SiteController extends Controller
 				$this->render('error', $error);
 		}
 	}
+        
         public function actionCsv()
 	{
           
@@ -90,6 +91,11 @@ print_r(json_encode(array("Name"=>"Top","children"=>$tree)));
 			// print_r(json_encode($_REQUEST));
 			Yii::app()->end();
 		//}
+	}
+        public function actionRating()
+	{
+          print_r($_REQUEST);
+          exit;
 	}
 
 	/**

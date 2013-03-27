@@ -208,7 +208,7 @@ setInterval(function() {
     i++;
 //updateReadings(i);
 }, 5 * 1000);
-function toggle(){
+/*function toggle(){
    // console.log(this)
     if (document.getElementById("company").value == "ibm") {
    // updateReadings(4);
@@ -216,16 +216,16 @@ function toggle(){
 }
 else
     powerGauge.update(8);
-}
+}*/
 //}
-/*function toggle(){
+function toggle(){
        // console.log(this)
     if (document.getElementById("company").value == "ibm") {
    // updateReadings(4);
    $.ajax({
             type: 'GET',
-            url: 'http://10.1.1.221/insightsAPI/coach.svc/GetAverageRating/16938/-3/-3',
-            //url: 'http://reports.globalenglish.com/Insights/V3/' + url,
+            //url: 'http://10.1.1.221/insightsAPI/coach.svc/GetAverageRating/16938/-3/-3',
+            url: 'index.php?r=site/Rating',
            // data: jsonfile,
             dataType: "text",
             async: false,
@@ -257,7 +257,7 @@ powerGauge.update(flare);
         });
 }
   
-}*/
+}
 //d3.selectAll("select").on("change", toggle);
 
 if ( !window.isLoaded ) {
